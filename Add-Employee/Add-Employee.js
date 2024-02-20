@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     data.forEach((element) => {
         if(element['EMPNO']==empno){
             var name=element['USER'].split(" ");
-            document.getElementsByClassName('first-name-data')[0].value=name[0];
-            document.getElementsByClassName('last-name-data')[0].value=name[name.length-1];
+            document.getElementsByClassName('last-name-data')[0].value=name[0];
+            document.getElementsByClassName('first-name-data')[0].value=name[name.length-1];
             document.getElementsByClassName('empno-data')[0].value=element['EMPNO'];
             document.getElementsByClassName('email-data')[0].value=element['EMAIL'];
             document.getElementsByClassName('joindt-data')[0].value=element['JOINDT'];
@@ -148,13 +148,13 @@ function errorMsg(){
     var mainDiv=document.getElementsByClassName('profile-picture-div');
     var edit=document.getElementsByClassName("edit-text");
     var successMsg=document.getElementsByClassName('success-msg');
-    var flag1=1,flag2=1;
-    if(file==""){
-        flag1=0;
+    var flag1=0,flag2=1;
+    if(document.getElementsByClassName('profile-picture')[0].src!='../Assets/profile.PNG'){
+        flag1=1;
     }
     else{
         flag1=1;
-        btnDiv[0].style.display='none';
+        // btnDiv[0].style.display='none';
         mainDiv[0].style.width='150px';
         edit[0].style.marginLeft='20%';
     }
@@ -193,23 +193,40 @@ function errorMsg(){
         if(flag1==1 && flag2==1){
             saveData(data);
             console.log("Success");
-            successMsg[0].style.width='1000px';
             successMsg[0].style.display='block';
 
             setTimeout(function() {
                 successMsg[0].style.display='none';
-                window.location.reload();
+                window.location.href="../Employee/employee.html";
             }, 1000);
             
         }
         else{
+            console.log(flag1);
+            console.log(flag2);
             console.log("failed");
         }
 }
 
 function saveData(data){
     const storedData=JSON.parse(localStorage.getItem('details')) || [];
-    storedData.push(data);
+    var exist=0;
+    storedData.forEach((element)=>{
+        if(element['EMPNO']==data['EMPNO']){
+            element['EMPNO']=data['EMPNO'];
+            element['USER']=data['USER'];
+            element['EMAIL']=data['EMAIL'];
+            element['JOINDT']=data['JOINDT'];
+            element['LOCATION']=data['LOCATION'];
+            element['DEPARTMENT']=data['DEPARTMENT'];
+            element['ROLE']=data['ROLE'];
+            exist=1;
+        }
+    });
+    if(exist==0){
+        storedData.push(data);
+    }
+    // storedData.push(data);
     localStorage.setItem('details',JSON.stringify(storedData));  
 }
 

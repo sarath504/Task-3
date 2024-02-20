@@ -185,6 +185,8 @@ function dotEdit(r){
     params.append('image',image);
     var url='http://127.0.0.1:5500/Add-Employee/Add-Employee.html?'+params.toString();
     var a=document.getElementsByClassName('anchor-edit'+(r))[0];
+    console.log(a);
+    console.log(span[0]);
     a.setAttribute('href',url);
     span[0].appendChild(a);
     
