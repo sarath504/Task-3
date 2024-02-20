@@ -1,0 +1,342 @@
+[
+{
+"USER":"Edgar Jones",
+"EMAIL":"edgar@tezo.com",
+"LOCATION":"Hyderabad",
+"DEPARTMENT":"Product Engg",
+"ROLE":"Full-stack Developer",
+"EMPNO":"TZ0012341",
+"STATUS":"Active",
+"JOINDT":"02/03/2020"
+},
+{
+"USER":"Albert Jones",
+"EMAIL":"alber@tezo.com",
+"LOCATION":"Banglore",
+"DEPARTMENT":"QA",
+"ROLE":"Sales",
+"EMPNO":"TZ0040141",
+"STATUS":"Active",
+"JOINDT":"05/03/2021"
+},
+{
+"USER":"Jos Jones",
+"EMAIL":"jos@tezo.com",
+"LOCATION":"Chennai",
+"DEPARTMENT":"Product Engg",
+"ROLE":"Software Developer",
+"EMPNO":"TZ0024265",
+"STATUS":"Active",
+"JOINDT":"01/08/2020"
+},
+{
+"USER":"Rahim",
+"EMAIL":"edgar@tezo.com",
+"LOCATION":"Pune",
+"DEPARTMENT":"QA",
+"ROLE":"Tester",
+"EMPNO":"TZ0045471",
+"STATUS":"In Active",
+"JOINDT":"09/05/2019"
+},
+{
+"USER":"ram",
+"EMAIL":"alber@tezo.com",
+"LOCATION":"Delhi",
+"DEPARTMENT":"Finance",
+"ROLE":"Full-stack Developer",
+"EMPNO":"TZ0049241",
+"STATUS":"Active",
+"JOINDT":"05/01/2023"
+},
+{
+"USER":"Charan",
+"EMAIL":"jos@tezo.com",
+"LOCATION":"Hyderabad",
+"DEPARTMENT":"Product Engg",
+"ROLE":"Full-stack Developer",
+"EMPNO":"TZ0041341",
+"STATUS":"Active",
+"JOINDT":"07/03/2018"
+},
+{
+"USER":"rohit",
+"EMAIL":"jos@tezo.com",
+"LOCATION":"Kolkata",
+"DEPARTMENT":"IT",
+"ROLE":"Senior Software Engineer",
+"EMPNO":"TZ0074341",
+"STATUS":"In Active",
+"JOINDT":"02/07/2023"
+},
+{
+"USER":"Alice Smith",
+"EMAIL":"alice.smith@tezo.com",
+"LOCATION": "New York",
+"DEPARTMENT": "Marketing",
+"ROLE": "Marketing Manager",
+"EMPNO": "NY0012304",
+"STATUS": "In Active",
+"JOINDT": "06/05/2018"
+},
+{
+"USER":"Bob Johnson",
+"EMAIL":"bob.johnson@tezo.com",
+"LOCATION": "Los Angeles",
+"DEPARTMENT": "Sales",
+"ROLE": "Sales Representative",
+"EMPNO": "LA0056078",
+"STATUS": "Active",
+"JOINDT": "02/08/2019"
+},
+{
+"USER": "Ella Lee",
+"EMAIL": "ella.lee@tezo.com",
+"LOCATION": "Chicago",
+"DEPARTMENT": "Finance",
+"ROLE": "Financial Analyst",
+"EMPNO": "CH0090876",
+"STATUS": "Active",
+"JOINDT": "05/10/2017"
+},
+{
+"USER": "David Brown",
+"EMAIL": "david.brown@tezo.com",
+"LOCATION": "Hyderabad",
+"DEPARTMENT": "Human Resources",
+"ROLE": "HR Manager",
+"EMPNO": "HO0023450",
+"STATUS": "In Active",
+"JOINDT": "02/05/2020"
+},
+{
+"USER": "Sophia Garcia",
+"EMAIL": "sophia.garcia@tezo.com",
+"LOCATION": "Miami",
+"DEPARTMENT": "Operations",
+"ROLE": "Operations Coordinator",
+"EMPNO": "MI0043201",
+"STATUS": "Active",
+"JOINDT": "09/03/2016"
+},
+{
+"USER": "Oliver Martinez",
+"EMAIL": "oliver.martinez@tezo.com",
+"LOCATION": "San Francisco",
+"DEPARTMENT": "Customer Service",
+"ROLE": "Customer Support Specialist",
+"EMPNO": "SF0037890",
+"STATUS": "Active",
+"JOINDT": "03/12/2018"
+},
+{
+"USER": "Emma Taylor",
+"EMAIL": "emma.taylor@tezo.com",
+"LOCATION": "Seattle",
+"DEPARTMENT": "Research and Development",
+"ROLE": "Research Scientist",
+"EMPNO": "SE0018197",
+"STATUS": "Active",
+"JOINDT": "07/02/2019"
+},
+{
+"USER": "James Wilson",
+"EMAIL": "james.wilson@tezo.com",
+"LOCATION": "Boston",
+"DEPARTMENT": "IT",
+"ROLE": "System Administrator",
+"EMPNO": "BO0057432",
+"STATUS": "Active",
+"JOINDT": "03/08/2017"
+},
+{
+"USER": "Ava Moore",
+"EMAIL": "ava.moore@tezo.com",
+"LOCATION": "Denver",
+"DEPARTMENT": "Legal",
+"ROLE": "Legal Counsel",
+"EMPNO": "DE003210",
+"STATUS": "In Active",
+"JOINDT": "08/29/2019"
+},
+{
+"USER": "William Clark",
+"EMAIL": "william.clark@tezo.com",
+"LOCATION": "Dallas",
+"DEPARTMENT": "Product Management",
+"ROLE": "Product Manager",
+"EMPNO": "DA0018765",
+"STATUS": "Active",
+"JOINDT": "05/05/2018"
+},
+{
+"USER":"Edgar Jones",
+"EMAIL":"edgar@tezo.com",
+"LOCATION":"Hyderabad",
+"DEPARTMENT":"Product Engg",
+"ROLE":"Full-stack Developer",
+"EMPNO":"TZ0023421",
+"STATUS":"In Active",
+"JOINDT":"02/03/2020"
+},
+{
+"USER":"Albert Jones",
+"EMAIL":"alber@tezo.com",
+"LOCATION":"Banglore",
+"DEPARTMENT":"QA",
+"ROLE":"Sales",
+"EMPNO":"TZ0041641",
+"STATUS":"Active",
+"JOINDT":"05/03/2021"
+},
+{
+"USER":"Jos Jones",
+"EMAIL":"jos@tezo.com",
+"LOCATION":"Chennai",
+"DEPARTMENT":"Product Engg",
+"ROLE":"Software Developer",
+"EMPNO":"TZ0025265",
+"STATUS":"Active",
+"JOINDT":"01/08/2020"
+},
+{
+"USER":"Rahim",
+"EMAIL":"edgar@tezo.com",
+"LOCATION":"Pune",
+"DEPARTMENT":"QA",
+"ROLE":"Tester",
+"EMPNO":"TZ0052471",
+"STATUS":"In Active",
+"JOINDT":"09/05/2019"
+},
+{
+"USER":"ram",
+"EMAIL":"alber@tezo.com",
+"LOCATION":"Delhi",
+"DEPARTMENT":"Finance",
+"ROLE":"Full-stack Developer",
+"EMPNO":"TZ0044241",
+"STATUS":"Active",
+"JOINDT":"05/01/2023"
+},
+{
+"USER":"Charan",
+"EMAIL":"jos@tezo.com",
+"LOCATION":"Hyderabad",
+"DEPARTMENT":"Product Engg",
+"ROLE":"Full-stack Developer",
+"EMPNO":"TZ011341",
+"STATUS":"Active",
+"JOINDT":"07/03/2018"
+},
+{
+"USER":"rohit",
+"EMAIL":"jos@tezo.com",
+"LOCATION":"Kolkata",
+"DEPARTMENT":"IT",
+"ROLE":"Senior Software Engineer",
+"EMPNO":"TZ0073410",
+"STATUS":"In Active",
+"JOINDT":"02/07/2023"
+},
+{
+"USER":"Alice Smith",
+"EMAIL":"alice.smith@tezo.com",
+"LOCATION": "New York",
+"DEPARTMENT": "Marketing",
+"ROLE": "Marketing Manager",
+"EMPNO": "NY0012343",
+"STATUS": "In Active",
+"JOINDT": "06/05/2018"
+},
+{
+"USER":"Bob Johnson",
+"EMAIL":"bob.johnson@tezo.com",
+"LOCATION": "Los Angeles",
+"DEPARTMENT": "Sales",
+"ROLE": "Sales Representative",
+"EMPNO": "LA0056738",
+"STATUS": "Active",
+"JOINDT": "02/08/2019"
+},
+{
+"USER": "Ella Lee",
+"EMAIL": "ella.lee@tezo.com",
+"LOCATION": "Chicago",
+"DEPARTMENT": "Finance",
+"ROLE": "Financial Analyst",
+"EMPNO": "CH0039876",
+"STATUS": "Active",
+"JOINDT": "05/10/2017"
+},
+{
+"USER": "David Brown",
+"EMAIL": "david.brown@tezo.com",
+"LOCATION": "Hyderabad",
+"DEPARTMENT": "Human Resources",
+"ROLE": "HR Manager",
+"EMPNO": "HO0023245",
+"STATUS": "In Active",
+"JOINDT": "02/05/2020"
+},
+{
+"USER": "Sophia Garcia",
+"EMAIL": "sophia.garcia@tezo.com",
+"LOCATION": "Miami",
+"DEPARTMENT": "Operations",
+"ROLE": "Operations Coordinator",
+"EMPNO": "MI0041321",
+"STATUS": "Active",
+"JOINDT": "09/03/2016"
+},
+{
+"USER": "Oliver Martinez",
+"EMAIL": "oliver.martinez@tezo.com",
+"LOCATION": "San Francisco",
+"DEPARTMENT": "Customer Service",
+"ROLE": "Customer Support Specialist",
+"EMPNO": "SF004890",
+"STATUS": "Active",
+"JOINDT": "03/12/2018"
+},
+{
+"USER": "Emma Taylor",
+"EMAIL": "emma.taylor@tezo.com",
+"LOCATION": "Seattle",
+"DEPARTMENT": "Research and Development",
+"ROLE": "Research Scientist",
+"EMPNO": "SE0032111",
+"STATUS": "Active",
+"JOINDT": "07/02/2019"
+},
+{
+"USER": "James Wilson",
+"EMAIL": "james.wilson@tezo.com",
+"LOCATION": "Boston",
+"DEPARTMENT": "IT",
+"ROLE": "System Administrator",
+"EMPNO": "BO015432",
+"STATUS": "Active",
+"JOINDT": "03/08/2017"
+},
+{
+"USER": "Ava Moore",
+"EMAIL": "ava.moore@tezo.com",
+"LOCATION": "Denver",
+"DEPARTMENT": "Legal",
+"ROLE": "Legal Counsel",
+"EMPNO": "DE013210",
+"STATUS": "In Active",
+"JOINDT": "08/29/2019"
+},
+{
+"USER": "William Clark",
+"EMAIL": "william.clark@tezo.com",
+"LOCATION": "Dallas",
+"DEPARTMENT": "Product Management",
+"ROLE": "Product Manager",
+"EMPNO": "DA018765",
+"STATUS": "Active",
+"JOINDT": "05/05/2018"
+}
+]
