@@ -154,7 +154,6 @@ function errorMsg(){
     }
     else{
         flag1=1;
-        // btnDiv[0].style.display='none';
         mainDiv[0].style.width='150px';
         edit[0].style.marginLeft='20%';
     }
@@ -226,7 +225,6 @@ function saveData(data){
     if(exist==0){
         storedData.push(data);
     }
-    // storedData.push(data);
     localStorage.setItem('details',JSON.stringify(storedData));  
 }
 
