@@ -29,7 +29,7 @@ function addData(data){
     tr.classList.add('table-row')
     let td=document.createElement('td');
     let checkbox=document.createElement('input');
-    td.classList.add('bodycell-checkbox')
+    td.classList.add('bodycell-checkbox');
     checkbox.type='checkbox';
     checkbox.classList.add("body-checkbox");
     checkbox.addEventListener('change',updateButtonColor);
@@ -128,6 +128,7 @@ function addData(data){
 
     var division2=document.createElement('div');
     division2.classList.add('custom-dropdown-menu-item');
+    division2.setAttribute('data-index', (i + 1));
     var spanEdit=document.createElement('span');
     var a=document.createElement('a');
     var text=document.createTextNode('Edit');
@@ -139,7 +140,7 @@ function addData(data){
     spanEdit.classList.add(editClass);
     division2.appendChild(spanEdit);
     spanEdit.addEventListener('click',function(){
-        dotEdit(this.parentElement.parentElement.parentElement.parentElement.parentElement.rowIndex);
+        dotEdit(this.parentElement.parentElement.parentElement.parentElement.parentElement.rowIndex,editClass.charAt(editClass.length-1));
         
     });
 
@@ -150,7 +151,8 @@ function addData(data){
     spanDelete.classList.add('delete'+item['EMPNO']);
     division3.appendChild(spanDelete);
     spanDelete.addEventListener('click',function(){
-        dotDelete(this.parentElement.parentElement.parentElement.parentElement.parentElement.rowIndex);
+        var index=editClass.charAt(editClass.length-1);
+        dotDelete(this.parentElement.parentElement.parentElement.parentElement.parentElement.rowIndex,index);
     });
     dropdownMenu.appendChild(division1);
     dropdownMenu.appendChild(division2);
@@ -172,35 +174,31 @@ function addData(data){
     });
 }
 
-function dotEdit(r){
+function dotEdit(r,index){
     var rows=document.getElementsByClassName('table-row');
-    var editClass='edit'+r;
-    var span=document.getElementsByClassName(editClass);
     var empno=rows[r-1].getElementsByClassName('empnoCell')[0].innerHTML;
-    var image=rows[r-1].getElementsByClassName('user-img')[0].src;
-    console.log(r);
-    console.log(empno);
     const params=new URLSearchParams();
     params.append('empid',empno);
-    params.append('image',image);
     var url='http://127.0.0.1:5500/Add-Employee/Add-Employee.html?'+params.toString();
-    var a=document.getElementsByClassName('anchor-edit'+(r))[0];
-    console.log(a);
-    console.log(span[0]);
+    var a=document.getElementsByClassName('anchor-edit'+(index))[0];
     a.setAttribute('href',url);
-    span[0].appendChild(a);
     
 }
 
-function dotDelete(r){
+function dotDelete(r,index){
     var rows=document.getElementsByClassName('table-row');
+    var msg=document.getElementsByClassName('delete-msg');
     var a=localStorage.getItem('details');
     console.log(rows.length);
     console.log(r);
     var array=JSON.parse(a);
-    array.splice(r-1,1);
+    array.splice(index-1,1);
     localStorage.setItem('details',JSON.stringify(array));
     rows[r-1].remove();
+    msg[0].style.display='block';
+    setTimeout(function(){
+        msg[0].style.display='none';
+    },3000);
 }
 
 function dropDown(dropdownId,text){
@@ -704,13 +702,21 @@ function deleteConfirm(){
     var row=document.getElementsByClassName('table-row');
     var div=document.getElementsByClassName('delete-confirm');
     var button=document.getElementsByClassName('delete-btn');
+    var msg=document.getElementsByClassName('delete-msg');
     var totalRows=bodyCheckbox.length;
     var c=0;
     for(var i=0;i<totalRows;i++){
         if(bodyCheckbox[c].checked==true){
-            row[c].remove();
-            array.splice(c,1);
-            localStorage.setItem('details',JSON.stringify(array));
+            var j=0;
+            array.forEach((item)=>{
+                if(item['EMPNO']==row[c].getElementsByClassName('empnoCell')[0].innerHTML){
+                    console.log(j);
+                    array.splice(j,1);
+                    localStorage.setItem('details',JSON.stringify(array));
+                }
+                j++;
+            });
+            row[c].remove();   
         }
         else{
             c=c+1;
@@ -720,9 +726,15 @@ function deleteConfirm(){
     button[0].style.cursor="default";
     div[0].style.display='none';
     button[0].disabled=true;
+    msg[0].style.display='block';
+    setTimeout(function(){
+        msg[0].style.display='none';
+    },3000);
+    
 }
 
 function cancelConfirm(){
+    var button=document.getElementsByClassName('delete-btn');
     var div=document.getElementsByClassName('delete-confirm');
     div[0].style.display='none';
     button[0].disabled=true;
@@ -743,7 +755,7 @@ function hamburgerOpen(){
         hamburger[0].style.width='5%';
         element[0].style.position='sticky';
         element[0].style.top='0px';
-        rightBody[0].style.marginLeft='0.5%';
+        rightBody[0].style.marginLeft='2%';
     }
 }
 

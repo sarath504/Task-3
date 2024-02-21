@@ -206,7 +206,7 @@
                                     <div class="emp-inf1">
                                         <div class="joindt-div">
                                             <label for="join-dt" class="label">Joining Date</label><br>
-                                            <input type="text" class="joindt-data" id="join-dt"  required onkeyup="dateValidation()" onfocus="removeError('joindt')" onblur="focusOut('joindt')">
+                                            <input type="text" class="joindt-data" id="join-dt"  required onkeyup="dateValidation()" onfocus="{this.type='date'};removeError('joindt')" onblur="focusOut('joindt')">
                                             <div class="error-msg-div">
                                                 <img src="../Assets/required.png" class="required">
                                                 <span class="error-msg">This field is required</span>
@@ -225,6 +225,10 @@
                                                   <span  onclick="dropDown(1,'Hyderabad')">Hyderabad</span>
                                                   <span  onclick="dropDown(1,'Banglore')">Banglore</span>
                                                   <span  onclick="dropDown(1,'Chennai')">Chennai</span>
+                                                  <span  onclick="dropDown(1,'Pune')">Pune</span>
+                                                  <span  onclick="dropDown(1,'Kolkata')">Kolkata</span>
+                                                  <span  onclick="dropDown(1,'Delhi')">Delhi</span>
+                                                  <span  onclick="dropDown(1,'Mumbai')">Mumbai</span>
                                                 </div>
                                             </div> 
                                         </div>
@@ -253,6 +257,8 @@
                                                   <span onclick="dropDown(3,'IT')">IT</span>
                                                   <span onclick="dropDown(3,'Product Engg.')">Product Engg.</span>
                                                   <span onclick="dropDown(3,'Software Developer')">Software Developer</span>
+                                                  <span onclick="dropDown(3,'QA')">QA</span>
+                                                  <span onclick="dropDown(3,'Finance')">Finance</span>
                                                 </div>
                                             </div> 
                                         </div>
@@ -261,7 +267,7 @@
                                         <div class=dropdown-div>
                                             <label for="" class="label" >Assign Manager</label><br>
                                             <div class="dropdown" id="dropdown4">
-                                                <button class="dropbtn" onclick="dropDownClick('manager')">Search
+                                                <button class="dropbtn btn-manager" onclick="dropDownClick('manager')">Search
                                                     <i class="fa fa-angle-down down-icon"></i>
                                                 </button>
                                                 <div class="dropdown-content">
@@ -274,7 +280,7 @@
                                         <div class="dropdown-div">
                                             <label for="" class="label">Assign Project</label><br>
                                             <div class="dropdown" id="dropdown5">
-                                                <button class="dropbtn" onclick="dropDownClick('project')">Search
+                                                <button class="dropbtn btn-project" onclick="dropDownClick('project')">Search
                                                     <i class="fa fa-angle-down down-icon"></i>
                                                 </button>
                                                 <div class="dropdown-content">

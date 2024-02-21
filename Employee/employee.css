@@ -472,6 +472,18 @@
     align-items: center;
 }
 
+.delete-msg{
+    display: none;
+    position: relative;
+    z-index: 1;
+    width: 300px;
+    left: 40%;
+    padding: 0% 3%;
+    margin-bottom: -5%;
+    background-color: #f6b2b2;
+    border-radius: 7px;
+}
+
 .delete-btn-div{
     margin-top: 1.5%;
 }
@@ -709,43 +721,3 @@ tbody td{
     padding: 0px;
     height: 20px;
 }
-
-
-.hamburger-menu{
-    display: none;
-    margin-left: 0%;
-    margin-right: 2%;
-    position: sticky;
-    height: 570px;
-    top: 0;
-}
-
-.hamburger-image{
-    padding: 5% 0%;
-    margin: 18% 0%;
-}
-
-
-.tezo-circle{
-    padding:0% 6% ;
-}
-
-.reverse-handle{
-    margin-top: -40%;
-    margin-right: 20%;
-}
-
-.logo-header{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-}
-
-.logo-cirlce{
-    height: 35px;
-    margin-left: -20%;
-    margin-top: -35%;
-}
-
-
-

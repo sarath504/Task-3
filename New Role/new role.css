@@ -309,43 +309,4 @@ textarea{
     font-size: 15px;
     margin-bottom: 20%;
   }
-
-
-  .hamburger-menu{
-    display: none;
-    margin-left: 0%;
-    position: sticky;
-    height: 480px;
-    top: 0;
-}
-
-.hamburger-image{
-    padding: 5% 0%;
-    margin: 10% 0%;
-}
-
-.reverse-handle{
-    margin-top: -25%;
-}
-
-.logo-header{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-}
-
-.logo-cirlce{
-    height: 35px;
-    margin-left: -20%;
-    margin-top: -25%;
-}
-
-.hamburger-image{
-    padding: 5% 10%;
-}
-
-.tezo-circle{
-    padding:0% 10% ;
-}
-
   

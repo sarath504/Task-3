@@ -36,27 +36,25 @@ document.addEventListener('DOMContentLoaded',()=>{
     var parameters=window.location.search;
     var urlparams=new URLSearchParams(parameters);
     var empno=urlparams.get('empid');
-    var img=document.getElementsByClassName('profile-picture');
     
-    if(urlparams.get('image')){
-        img[0].src=urlparams.get('image');
-    }
-    else{
-        img[0].src="../Assets/profile.PNG";
-    }
     var a=localStorage.getItem('details');
     var data=JSON.parse(a);
     data.forEach((element) => {
         if(element['EMPNO']==empno){
             var name=element['USER'].split(" ");
+            document.getElementsByClassName('profile-picture')[0].src=element['image'];
             document.getElementsByClassName('last-name-data')[0].value=name[0];
             document.getElementsByClassName('first-name-data')[0].value=name[name.length-1];
             document.getElementsByClassName('empno-data')[0].value=element['EMPNO'];
             document.getElementsByClassName('email-data')[0].value=element['EMAIL'];
+            document.getElementsByClassName('mobile-data')[0].value=element['MOBILE'];
+            document.getElementsByClassName('dob-data')[0].value=element['DOB'];
             document.getElementsByClassName('joindt-data')[0].value=element['JOINDT'];
             document.getElementsByClassName('btn-loc')[0].innerText=element['LOCATION'];
             document.getElementsByClassName('btn-role')[0].innerText=element['ROLE'];
             document.getElementsByClassName('btn-dept')[0].innerText=element['DEPARTMENT'];
+            document.getElementsByClassName('btn-manager')[0].innerText=element['MANAGER'];
+            document.getElementsByClassName('btn-project')[0].innerText=element['PROJECT'];
         }
     });
 
@@ -75,6 +73,10 @@ function errorMsg(){
     var email=emailId[0].value;
     var joinDt=document.getElementsByClassName('joindt-data');
     var joindt=joinDt[0].value;
+    var dob=document.getElementsByClassName('dob-data');
+    dob=dob[0].value;
+    var mobile=document.getElementsByClassName('mobile-data');
+    mobile=mobile[0].value;
 
     for(var i=0;i<div.length;i++){
         div[i].style.display='none';
@@ -169,6 +171,8 @@ function errorMsg(){
         var location=btn[0].innerText;
         var role=btn[1].innerText;
         var department=btn[2].innerText;
+        var manager=btn[3].innerText;
+        var project=btn[4].innerText;
         
         var img=document.getElementsByClassName('profile-picture');
 
@@ -181,7 +185,11 @@ function errorMsg(){
             ROLE:role,
             EMPNO:empno,
             STATUS:'Active',
-            JOINDT:joindt
+            JOINDT:joindt,
+            MOBILE:mobile,
+            DOB:dob,
+            MANAGER:manager,
+            PROJECT:project
         };
         
         for(var i=0;i<div.length;i++){
@@ -212,6 +220,7 @@ function saveData(data){
     var exist=0;
     storedData.forEach((element)=>{
         if(element['EMPNO']==data['EMPNO']){
+            element['image']=data['image'];
             element['EMPNO']=data['EMPNO'];
             element['USER']=data['USER'];
             element['EMAIL']=data['EMAIL'];
@@ -219,6 +228,10 @@ function saveData(data){
             element['LOCATION']=data['LOCATION'];
             element['DEPARTMENT']=data['DEPARTMENT'];
             element['ROLE']=data['ROLE'];
+            element['MOBILE']=data['MOBILE'];
+            element['DOB']=data['DOB'];
+            element['MANAGER']=data['MANAGER'];
+            element['PROJECT']=data['PROJECT'];
             exist=1;
         }
     });
@@ -317,7 +330,7 @@ function lnameValidation(){
 }
 
 function emailValidation(){
-    var email=/^[a-z0-9]+@[a-z]+[.]+[a-z]*$/;
+    var email=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     var text=document.getElementsByClassName('email-data')[0].value;
     var emailId=document.getElementsByClassName('error-email');
     if(email.test(text)){

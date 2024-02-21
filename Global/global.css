@@ -21,10 +21,13 @@
     top: 0;
 }
 
+::placeholder {
+    color: rgb(168, 163, 163);
+  }
+
 .left-container-logo{
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
 }
 
 .left-container-arrow{
@@ -202,8 +205,6 @@
 .search-img{
     height: 30px;
 }
-
-
 
 @media screen and (max-width: 1230px) {
     .left-container-arrow{
