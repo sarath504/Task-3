@@ -36,9 +36,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     var parameters=window.location.search;
     var urlparams=new URLSearchParams(parameters);
     var empno=urlparams.get('empid');
-    
     var a=localStorage.getItem('details');
     var data=JSON.parse(a);
+    if(empno){
+        document.getElementsByClassName('add-employee-btn')[0].innerHTML='Update';
+    }
     data.forEach((element) => {
         if(element['EMPNO']==empno){
             var name=element['USER'].split(" ");
