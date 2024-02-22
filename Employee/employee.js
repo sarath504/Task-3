@@ -681,7 +681,7 @@ function deleteRow(){
 
     var count=0;
     for(var i=0;i<bodyCheckbox.length;i++){
-        if(bodyCheckbox[i].checked==true && rows[i].style.display!='none'){
+        if(bodyCheckbox[i].checked==true){
             count=count+1;
         }
     }
@@ -737,8 +737,19 @@ function deleteConfirm(){
 function cancelConfirm(){
     var button=document.getElementsByClassName('delete-btn');
     var div=document.getElementsByClassName('delete-confirm');
+    var bodyCheckbox=document.getElementsByClassName('body-checkbox');
+    var header=document.getElementsByClassName('parent-checkbox');
+    for(var i=0;i<bodyCheckbox.length;i++){
+        if(bodyCheckbox[i].checked==true){
+            bodyCheckbox[i].checked=false;
+        }
+    }
+    header[0].checked=false;
     div[0].style.display='none';
     button[0].disabled=true;
+    button[0].disabled=true;
+    button[0].style.backgroundColor="#F89191";
+    button[0].style.cursor="default";
 }
 
 function hamburgerOpen(){
