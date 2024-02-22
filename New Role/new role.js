@@ -1,22 +1,18 @@
 function empSearch(){
     var input=document.getElementsByClassName('emp-search');
     var div=document.getElementsByClassName('assign-employees');
-    // div[0].style.display="none";
     div[0].style.display=div[0].style.display==="block" ? "none" : "block";
-    document.body.addEventListener("click", function(event) {
-        if (!div[0].contains(event.target) && event.target !==input[0] ) {
-            div[0].style.display = "none";
-        }
-    });
 }
 
 function boxColor(str){
     var role=document.getElementsByClassName('role-name');
     var description=document.getElementsByClassName('description');
     if(str=='role'){
+        role[0].style.border='none';
         role[0].style.outline='2px solid #378EFF';
     }
     else if(str=='textarea'){
+        description[0].style.border='none';
         description[0].style.outline='2px solid #378EFF';
     }
 }

@@ -106,28 +106,6 @@
                                         <label for="upload-btn" class="label-upload">Upload Profile Picture</label>
                                         <input type="file" id="upload-btn" class="file-upload">
                                     </form>
-                                    <script>
-                                        var inputFile=document.getElementsByClassName('file-upload');
-                                        inputFile[0].addEventListener('change',event=>{
-                                            console.log("entered");
-                                            const image=event.target.files[0];
-                                            const reader=new FileReader();
-                                            reader.readAsDataURL(image);
-                                            reader.addEventListener('load',()=>{
-                                                localStorage.setItem('profileImage',reader.result);
-                                                console.log("Image is uploaded to local storage");
-                                                var img=document.getElementsByClassName('profile-picture');
-                                                img[0].src=localStorage.getItem('profileImage');
-                                            });
-                                            inputFile[0].addEventListener('click',()=>{
-                                                inputFile[0].value=null;
-                                            });
-                                            if(profileImage){
-                                                reader.readAsDataURL(profileImage);
-                                            }
-                                            
-                                        });
-                                    </script>
                                 </div>
                                 <div class="success-msg">
                                     Details added successfully

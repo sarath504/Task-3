@@ -60,7 +60,31 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
     });
 
+
+    var inputFile=document.getElementsByClassName('file-upload');
+inputFile[0].addEventListener('change',event=>{
+    console.log("entered");
+    const image=event.target.files[0];
+    const reader=new FileReader();
+    reader.readAsDataURL(image);
+    reader.addEventListener('load',()=>{
+        localStorage.setItem('profileImage',reader.result);
+        console.log("Image is uploaded to local storage");
+        var img=document.getElementsByClassName('profile-picture');
+        img[0].src=localStorage.getItem('profileImage');
+    });
+    inputFile[0].addEventListener('click',()=>{
+        inputFile[0].value=null;
+    });
+    // if(img[0]){
+    //     reader.readAsDataURL(profileImage);
+    // }
+    
 });
+
+});
+
+
 
 
 function errorMsg(){
@@ -143,11 +167,6 @@ function errorMsg(){
     else{
         div[4].style.display='none';
     }
-
-    var file=inputFile[0].value;
-    console.log(file);
-    inputFile.value='';
-    console.log(file);
     var btnDiv=document.getElementsByClassName('error-btn-div');
     var mainDiv=document.getElementsByClassName('profile-picture-div');
     var edit=document.getElementsByClassName("edit-text");
@@ -356,7 +375,7 @@ function empIdValidation(){
 }
 
 function dateValidation(){
-    var date=/^((0[1-9]|1[0-2])\/((0|1)[0-9]|2[0-9]|3[0-1])\/((19|20)\d\d))$/;
+    var date=/^\d{4}\-\d{1,2}\-\d{1,2}$/;
     var text=document.getElementsByClassName('joindt-data')[0].value;
     var joinDt=document.getElementsByClassName('error-date');
     if(date.test(text) || text.length==0){
@@ -365,10 +384,8 @@ function dateValidation(){
     else{
         joinDt[0].style.display='block';
     }
+    console.log(text);
 }
-
-
-
 
 function dropDown(dropdownId,text){
     var dropdown=document.getElementById('dropdown'+dropdownId)

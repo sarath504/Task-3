@@ -677,10 +677,11 @@ function deleteRow(){
     var div=document.getElementsByClassName('delete-confirm');
     var msg=document.getElementsByClassName('confirm-msg');
     var bodyCheckbox=document.getElementsByClassName('body-checkbox');
+    var rows=document.getElementsByClassName('table-row');
 
     var count=0;
     for(var i=0;i<bodyCheckbox.length;i++){
-        if(bodyCheckbox[i].checked==true){
+        if(bodyCheckbox[i].checked==true && rows[i].style.display!='none'){
             count=count+1;
         }
     }
