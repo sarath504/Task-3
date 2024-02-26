@@ -120,7 +120,7 @@
                             <div class="empno">
                                 <form class="empno-form">
                                     <label for="empno" class="label">Emp No</label><br>
-                                    <input type="text" class="empno-data" id='empno' placeholder="Text" required onfocus="removeError('empno')" onblur="focusOut('empno')" onkeyup="empIdValidation()">
+                                    <input type="text" class="empno-data" id='empno' placeholder="Text" required onfocus="removeValidationMessage('empno')" onblur="focusOut('empno')" onkeyup="validateEmpId()">
                                     <div class="error-msg-div">
                                         <img src="../Assets/required.png" class="required required1">
                                         <span class="error-msg div1">This field is required</span>
@@ -134,7 +134,7 @@
                                 <div class="name-data">
                                     <div class="name-div">
                                         <label for="first-name" class="label">First Name</label><br>
-                                        <input type="text" class="first-name-data" id="first-name" placeholder="Text" required onfocus="removeError('fname')" onblur="focusOut('fname')" onkeyup="fnameValidation()">
+                                        <input type="text" class="first-name-data" id="first-name" placeholder="Text" required onfocus="removeValidationMessage('fname')" onblur="focusOut('fname')" onkeyup="validateFirstName()">
                                         <div class="error-msg-div">
                                             <img src="../Assets/required.png" class="required">
                                             <span class="error-msg">This field is required</span>
@@ -145,7 +145,7 @@
                                     </div>
                                     <div class="name-div">
                                         <label for="last-name" class="label">Last Name</label><br>
-                                        <input type="text" class="last-name-data" id="last-name" placeholder="Text" required onfocus="removeError('lname')" onblur="focusOut('lname')" onkeyup="lnameValidation()">
+                                        <input type="text" class="last-name-data" id="last-name" placeholder="Text" required onfocus="removeValidationMessage('lname')" onblur="focusOut('lname')" onkeyup="validateLastName()">
                                         <div class="error-msg-div">
                                             <img src="../Assets/required.png" class="required">
                                             <span class="error-msg">This field is required</span>
@@ -162,7 +162,7 @@
                                 <div class="contact-details">
                                     <div class="contact-details-div">
                                         <label for="email" class="label">Email id</label><br>
-                                        <input type="email" class="email-data" id="email" placeholder="joe.j@technovert.com" required onfocus="removeError('email')" onblur="focusOut('email')" onkeyup="emailValidation()">
+                                        <input type="email" class="email-data" id="email" placeholder="joe.j@technovert.com" required onfocus="removeValidationMessage('email')" onblur="focusOut('email')" onkeyup="validateEmail()">
                                         <div class="error-msg-div">
                                             <img src="../Assets/required.png" class="required">
                                             <span class="error-msg">This field is required</span>
@@ -173,7 +173,7 @@
                                     </div>
                                     <div class="contact-details-div">
                                         <label for="mobile" class="label">Mobile Number</label><br>
-                                        <input type="text" class="mobile-data" id="mobile" placeholder="0000000000" onkeyup="mobileValidation()">
+                                        <input type="text" class="mobile-data" id="mobile" placeholder="0000000000" onkeyup="validateMobileNumber()">
                                         <div class="error-mobile">
                                             <span class="error-msg">Enter 10 numbers from 0-9 only</span>
                                         </div>
@@ -184,7 +184,7 @@
                                     <div class="emp-inf1">
                                         <div class="joindt-div">
                                             <label for="join-dt" class="label">Joining Date</label><br>
-                                            <input type="text" class="joindt-data" id="join-dt"  required onkeyup="dateValidation()" onfocus="{this.type='date'};removeError('joindt')" onblur="focusOut('joindt')">
+                                            <input type="text" class="joindt-data" id="join-dt"  required onkeyup="validateJoinDate()" onfocus="{this.type='date'};removeValidationMessage('joindt')" onblur="focusOut('joindt')">
                                             <div class="error-msg-div">
                                                 <img src="../Assets/required.png" class="required">
                                                 <span class="error-msg">This field is required</span>
@@ -196,7 +196,7 @@
                                         <div class="dropdown-div">
                                             <label for="" class="label">Location</label><br>
                                             <div class="dropdown" id="dropdown1">
-                                                <button class="dropbtn btn-loc" onclick='dropDownClick("Location")'>Location
+                                                <button class="dropbtn btn-loc" onclick='dropDownOptionsDisplay("Location")'>Location
                                                     <i class="fa fa-angle-down down-icon"></i>
                                                 </button>
                                                 <div class="dropdown-content">
@@ -215,7 +215,7 @@
                                         <div class=dropdown-div>
                                             <label for="" class="label">Job Title</label><br>
                                             <div class="dropdown" id="dropdown2">
-                                                <button class="dropbtn btn-role" onclick="dropDownClick('Job Title')">Job Title
+                                                <button class="dropbtn btn-role" onclick="dropDownOptionsDisplay('Job Title')">Job Title
                                                     <i class="fa fa-angle-down down-icon"></i>
                                                 </button>
                                                 <div class="dropdown-content">
@@ -228,7 +228,7 @@
                                         <div class="dropdown-div">
                                             <label for="" class="label">Department</label><br>
                                             <div class="dropdown" id="dropdown3">
-                                                <button class="dropbtn btn-dept" onclick="dropDownClick('Department')">Department
+                                                <button class="dropbtn btn-dept" onclick="dropDownOptionsDisplay('Department')">Department
                                                     <i class="fa fa-angle-down down-icon"></i>
                                                 </button>
                                                 <div class="dropdown-content">
@@ -245,7 +245,7 @@
                                         <div class=dropdown-div>
                                             <label for="" class="label" >Assign Manager</label><br>
                                             <div class="dropdown" id="dropdown4">
-                                                <button class="dropbtn btn-manager" onclick="dropDownClick('manager')">Search
+                                                <button class="dropbtn btn-manager" onclick="dropDownOptionsDisplay('manager')">Search
                                                     <i class="fa fa-angle-down down-icon"></i>
                                                 </button>
                                                 <div class="dropdown-content">
@@ -258,7 +258,7 @@
                                         <div class="dropdown-div">
                                             <label for="" class="label">Assign Project</label><br>
                                             <div class="dropdown" id="dropdown5">
-                                                <button class="dropbtn btn-project" onclick="dropDownClick('project')">Search
+                                                <button class="dropbtn btn-project" onclick="dropDownOptionsDisplay('project')">Search
                                                     <i class="fa fa-angle-down down-icon"></i>
                                                 </button>
                                                 <div class="dropdown-content">
@@ -277,7 +277,7 @@
                                                 <a href="../Employee/employee.html"><button class="cancel-btn">Cancel</button></a>
                                             </div>
                                             <div>
-                                                <button class="add-employee-btn" onclick="errorMsg()">Add Employee</button>
+                                                <button class="add-employee-btn" onclick="AddEmployee()">Add Employee</button>
                                             </div>
                                         </div>
                                     </div>

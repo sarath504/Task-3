@@ -3,14 +3,9 @@ function hamburgerOpen(){
     var hamburger=document.getElementsByClassName('hamburger-menu');
     var mainContainer=document.getElementsByClassName('main-container');
     element[0].style.display='none';
-    if(element[0].style.display=='none'){
-        hamburger[0].style.display='flex';
-        hamburger[0].style.flexDirection='column';
-        mainContainer[0].style.display='flex';
-        mainContainer[0].style.flexDirection='row';
-        mainContainer[0].style.flex='10% 90%';
-        hamburger[0].style.width='10%';
-    }
+    hamburger[0].classList.add('hamburger-open');
+    hamburger[0].style.display='block';
+    mainContainer[0].classList.add('expand');
 }
 
 function hamburgerClose(){
@@ -18,15 +13,11 @@ function hamburgerClose(){
     var element=document.getElementsByClassName('left-container');
     var hamburger=document.getElementsByClassName('hamburger-menu');
     var mainContainer=document.getElementsByClassName('main-container');
+
     hamburger[0].style.display='none';
-    if(hamburger[0].style.display=='none'){
-        element[0].style.display='block';
-        mainContainer[0].style.display='flex';
-        mainContainer[0].style.flexDirection='row';
-        mainContainer[0].style.flex='18% 82%';
-        mainContainer[0].style.marginLeft='1%';
-        leftUpdate[0].style.marginTop='75%';
-    }
+    element[0].style.display='block';
+    leftUpdate[0].style.marginTop='75%';
+    mainContainer[0].classList.add('hamburger-close');
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -62,7 +53,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 
     var inputFile=document.getElementsByClassName('file-upload');
-inputFile[0].addEventListener('change',event=>{
+    inputFile[0].addEventListener('change',event=>{
     console.log("entered");
     const image=event.target.files[0];
     const reader=new FileReader();
@@ -76,169 +67,78 @@ inputFile[0].addEventListener('change',event=>{
     inputFile[0].addEventListener('click',()=>{
         inputFile[0].value=null;
     });
-    // if(img[0]){
-    //     reader.readAsDataURL(profileImage);
-    // }
     
 });
 
 });
 
-
-
-
-function errorMsg(){
+function employeeValidation(){
     var div=document.getElementsByClassName('error-msg-div');
     var empNo=document.getElementsByClassName('empno-data');
-    var empno=empNo[0].value;
     var fName=document.getElementsByClassName('first-name-data');
-    var fname=fName[0].value;
     var lName=document.getElementsByClassName('last-name-data');
-    var lname=lName[0].value;
     var emailId=document.getElementsByClassName('email-data');
-    var email=emailId[0].value;
     var joinDt=document.getElementsByClassName('joindt-data');
-    var joindt=joinDt[0].value;
+
+    var divs=[empNo,fName,lName,emailId,joinDt]
+    var inputs = [empNo[0].value, fName[0].value, lName[0].value, emailId[0].value, joinDt[0].value];
+    var errorDivs = [div[0], div[1], div[2], div[3], div[4]];
+
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].length==0) {
+            console.log("value="+i);
+            errorDivs[i].style.display = 'flex';
+            errorDivs[i].style.flexDirection = 'row';
+            divs[i][0].style.outline = '2px solid red';
+            divs[i][0].style.borderStyle = 'none';
+        } else {
+            errorDivs[i].style.display = 'none';
+        }
+    }
+}
+
+function loadData(){
+    var btn=document.getElementsByClassName('dropbtn');
+    var img=document.getElementsByClassName('profile-picture');
+    var empNo=document.getElementsByClassName('empno-data')[0].value;
+    var fName=document.getElementsByClassName('first-name-data')[0].value;
+    var lName=document.getElementsByClassName('last-name-data')[0].value;
+    var emailId=document.getElementsByClassName('email-data')[0].value;
+    var joinDt=document.getElementsByClassName('joindt-data')[0].value;
+
     var dob=document.getElementsByClassName('dob-data');
     dob=dob[0].value;
     var mobile=document.getElementsByClassName('mobile-data');
     mobile=mobile[0].value;
 
-    for(var i=0;i<div.length;i++){
-        div[i].style.display='none';
-    }
-    
-    if(empno.length==0){
-        if(div[0].style.display=='none'){
-            div[0].style.display='flex';
-            div[0].style.flexDirection='row';
-            empNo[0].style.outline="2px solid red";
-            empNo[0].style.borderStyle='none';
-        }
-    }
-    else{
-        div[0].style.display='none';
-    }
+    var name=lName+" "+fName;
+    var location=btn[0].innerText;
+    var role=btn[1].innerText;
+    var department=btn[2].innerText;
+    var manager=btn[3].innerText;
+    var project=btn[4].innerText;
 
-    if(fname.length==0){
-        if(div[1].style.display=='none'){
-            div[1].style.display='flex';
-            div[1].style.flexDirection='row';
-            fName[0].style.outline="2px solid red";
-            fName[0].style.borderStyle='none';
-        }
-    }
-    else{
-        div[1].style.display='none';
-    }
-
-    if(lname.length==0){
-        if(div[2].style.display=='none'){
-            div[2].style.display='flex';
-            div[2].style.flexDirection='row';
-            lName[0].style.outline="2px solid red";
-            lName[0].style.borderStyle='none';
-        }
-    }
-    else{
-        div[2].style.display='none';
-    }
-
-    if(email.length==0){
-        if(div[3].style.display=='none'){
-            div[3].style.display='flex';
-            div[3].style.flexDirection='row';
-            emailId[0].style.outline="2px solid red";
-            emailId[0].style.borderStyle='none';
-        }
-    }
-    else{
-        div[3].style.display='none';
-    }
-
-    if(joindt.length==0){
-        if(div[4].style.display=='none'){
-            div[4].style.display='flex';
-            div[4].style.flexDirection='row';
-            joinDt[0].style.outline="2px solid red";
-            joinDt[0].style.borderStyle='none';
-        }
-    }
-    else{
-        div[4].style.display='none';
-    }
-    var btnDiv=document.getElementsByClassName('error-btn-div');
-    var mainDiv=document.getElementsByClassName('profile-picture-div');
-    var edit=document.getElementsByClassName("edit-text");
-    var successMsg=document.getElementsByClassName('success-msg');
-    var flag1=0,flag2=1;
-    if(document.getElementsByClassName('profile-picture')[0].src!='../Assets/profile.PNG'){
-        flag1=1;
-    }
-    else{
-        flag1=1;
-        mainDiv[0].style.width='150px';
-        edit[0].style.marginLeft='20%';
-    }
-
-        var btn=document.getElementsByClassName('dropbtn');
-        empno=document.getElementsByClassName('empno-data')[0].value;
-        fname=document.getElementsByClassName('first-name-data')[0].value;
-        lname=document.getElementsByClassName('last-name-data')[0].value;
-        var name=lname+" "+fname;
-        email=document.getElementsByClassName('email-data')[0].value;
-        joindt=document.getElementsByClassName('joindt-data')[0].value;
-
-        var location=btn[0].innerText;
-        var role=btn[1].innerText;
-        var department=btn[2].innerText;
-        var manager=btn[3].innerText;
-        var project=btn[4].innerText;
-        
-        var img=document.getElementsByClassName('profile-picture');
-
-        var data={
-            image:img[0].src,
-            USER:name,
-            EMAIL:email,
-            LOCATION:location,
-            DEPARTMENT:department,
-            ROLE:role,
-            EMPNO:empno,
-            STATUS:'Active',
-            JOINDT:joindt,
-            MOBILE:mobile,
-            DOB:dob,
-            MANAGER:manager,
-            PROJECT:project
-        };
-        
-        for(var i=0;i<div.length;i++){
-            if(div[i].style.display!='none'){
-                flag2=0;
-            }
-        }
-        if(flag1==1 && flag2==1){
-            saveData(data);
-            console.log("Success");
-            successMsg[0].style.display='block';
-
-            setTimeout(function() {
-                successMsg[0].style.display='none';
-                window.location.href="../Employee/employee.html";
-            }, 1000);
-            
-        }
-        else{
-            console.log(flag1);
-            console.log(flag2);
-            console.log("failed");
-        }
+    var data={
+        image:img[0].src,
+        USER:name,
+        EMAIL:emailId,
+        LOCATION:location,
+        DEPARTMENT:department,
+        ROLE:role,
+        EMPNO:empNo,
+        STATUS:'Active',
+        JOINDT:joinDt,
+        MOBILE:mobile,
+        DOB:dob,
+        MANAGER:manager,
+        PROJECT:project
+    };
+    return data;
 }
 
 function saveData(data){
     const storedData=JSON.parse(localStorage.getItem('details')) || [];
-    var exist=0;
+    var isExist=false;
     storedData.forEach((element)=>{
         if(element['EMPNO']==data['EMPNO']){
             element['image']=data['image'];
@@ -253,68 +153,72 @@ function saveData(data){
             element['DOB']=data['DOB'];
             element['MANAGER']=data['MANAGER'];
             element['PROJECT']=data['PROJECT'];
-            exist=1;
+            isExist=true;
         }
     });
-    if(exist==0){
+    if(!isExist){
         storedData.push(data);
     }
     localStorage.setItem('details',JSON.stringify(storedData));  
 }
 
-function dropDownClick(str){
-    console.log(str);
-    var dropDown=document.getElementsByClassName('dropdown-content');
-    var btn=document.getElementsByClassName('dropbtn');
-        if(str=='Location'){
-            dropDown[0].style.borderRadius='7px';
-            dropDown[0].style.display=dropDown[0].style.display==='block' ? 'none' : 'block';
-            document.body.addEventListener("click", function(event) {
-                if (event.target !==btn[0]) {
-                    dropDown[0].style.display = "none";
-                }
-            });
+function AddEmployee(){
+    employeeValidation();
+    var data=loadData();
+    var div=document.getElementsByClassName('error-msg-div');
+    var mainDiv=document.getElementsByClassName('profile-picture-div');
+    var edit=document.getElementsByClassName("edit-text");
+    var successMsg=document.getElementsByClassName('success-msg');
+
+    var flag1=0,flag2=1;
+    if(document.getElementsByClassName('profile-picture')[0].src!='../Assets/profile.PNG'){
+        flag1=1;
+    }
+    else{
+        flag1=1;
+        mainDiv[0].style.width='150px';
+        edit[0].style.marginLeft='20%';
+    }
+
+    
+    for(var i=0;i<div.length;i++){
+        if(div[i].style.display!='none'){
+            flag2=0;
         }
-        else if(str=='Job Title'){
-            dropDown[1].style.borderRadius='7px';
-            dropDown[1].style.display=dropDown[1].style.display==='block' ? 'none' : 'block';
-            document.body.addEventListener("click", function(event) {
-                if (event.target !==btn[1]) {
-                    dropDown[1].style.display = "none";
-                }
-            });
-        }
-        else if(str=='Department'){
-            dropDown[2].style.borderRadius='7px';
-            dropDown[2].style.display=dropDown[2].style.display==='block' ? 'none' : 'block';
-            document.body.addEventListener("click", function(event) {
-                if (event.target !==btn[2]) {
-                    dropDown[2].style.display = "none";
-                }
-            });
-        }
-        else if(str=='manager'){
-            dropDown[3].style.borderRadius='7px';
-            dropDown[3].style.display=dropDown[3].style.display==='block' ? 'none' : 'block';
-            document.body.addEventListener("click", function(event) {
-                if (event.target !==btn[3]) {
-                    dropDown[3].style.display = "none";
-                }
-            });
-        }
-        else if(str=='project'){
-            dropDown[4].style.borderRadius='7px';
-            dropDown[4].style.display=dropDown[4].style.display==='block' ? 'none' : 'block';
-            document.body.addEventListener("click", function(event) {
-                if (event.target !==btn[4]) {
-                    dropDown[4].style.display = "none";
-                }
-            });
-        }
+    }
+    if(flag1==1 && flag2==1){
+        saveData(data);
+        successMsg[0].style.display='block';
+
+        setTimeout(function() {
+            successMsg[0].style.display='none';
+            window.location.href="../Employee/employee.html";
+        }, 1000);
+        
+    }
 }
 
+function dropDownOptionsDisplay(str){
+    var dropDown=document.getElementsByClassName('dropdown-content');
+    var btn=document.getElementsByClassName('dropbtn');
+    var btnValues=['Location','Job Title','Department','manager','project'];
+    for(var i=0;i<btn.length;i++){
+        if(btnValues[i]==str){
+            dropDown[i].style.borderRadius='7px';
+            dropDown[i].style.display=dropDown[i].style.display==='block' ? 'none' : 'block';
+            (function(i){
+                document.body.addEventListener("click", function(event) {
+                    if (event.target !==btn[i]) {
+                        dropDown[i].style.display = "none";
+                    }
+                });
+            })(i);
+            
+        }
+    }
+}
 
-function mobileValidation(){
+function validateMobileNumber(){
     var mobileNumber=/^[0-9]{10}$/;
     var text=document.getElementsByClassName('mobile-data')[0].value;
     var mobile=document.getElementsByClassName('error-mobile');
@@ -326,7 +230,7 @@ function mobileValidation(){
     }
 }
 
-function fnameValidation(){
+function validateFirstName(){
     var fname=/^[a-zA-Z\s]*$/;
     var text=document.getElementsByClassName('first-name-data')[0].value;
     var firstName=document.getElementsByClassName('error-fname');
@@ -338,7 +242,7 @@ function fnameValidation(){
     }
 }
 
-function lnameValidation(){
+function validateLastName(){
     var lname=/^[a-zA-Z\s]*$/;
     var text=document.getElementsByClassName('last-name-data')[0].value;
     var lastName=document.getElementsByClassName('error-lname');
@@ -350,7 +254,7 @@ function lnameValidation(){
     }
 }
 
-function emailValidation(){
+function validateEmail(){
     var email=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     var text=document.getElementsByClassName('email-data')[0].value;
     var emailId=document.getElementsByClassName('error-email');
@@ -362,7 +266,7 @@ function emailValidation(){
     }
 }
 
-function empIdValidation(){
+function validateEmpId(){
     var empid=/^[A-Za-z0-9]*$/;
     var text=document.getElementsByClassName('empno-data')[0].value;
     var emp=document.getElementsByClassName('error-empid');
@@ -374,7 +278,7 @@ function empIdValidation(){
     }
 }
 
-function dateValidation(){
+function validateJoinDate(){
     var date=/^\d{4}\-\d{1,2}\-\d{1,2}$/;
     var text=document.getElementsByClassName('joindt-data')[0].value;
     var joinDt=document.getElementsByClassName('error-date');
@@ -384,7 +288,6 @@ function dateValidation(){
     else{
         joinDt[0].style.display='block';
     }
-    console.log(text);
 }
 
 function dropDown(dropdownId,text){
@@ -392,7 +295,7 @@ function dropDown(dropdownId,text){
     dropdown.querySelector(".dropbtn").textContent=text;
 }
 
-function removeError(str){
+function removeValidationMessage(str){
     var div=document.getElementsByClassName('error-msg-div');
     var empNo=document.getElementsByClassName('empno-data');
     var fName=document.getElementsByClassName('first-name-data');
@@ -400,27 +303,14 @@ function removeError(str){
     var emailId=document.getElementsByClassName('email-data');
     var joinDt=document.getElementsByClassName('joindt-data');
 
-    if(str=='empno'){
-        div[0].style.display="none";
-        empNo[0].style.outline="2px solid #378EFF";
+    var fields=['empno','fname','lname','email','joindt'];
+    var divs=[empNo,fName,lName,emailId,joinDt]
+    for(var i=0;i<fields.length;i++){
+        if(str==fields[i]){
+            div[i].style.display='none';
+            divs[i][0].style.outline='2px solid #378EFF';
+        }
     }
-    else if(str=="fname"){
-        div[1].style.display="none";
-        fName[0].style.outline="2px solid #378EFF";
-    }
-    else if(str=="lname"){
-        div[2].style.display="none";
-        lName[0].style.outline="2px solid #378EFF";
-    }
-    else if(str=="email"){
-        div[3].style.display="none";
-        emailId[0].style.outline="2px solid #378EFF";
-    }
-    else if(str=="joindt"){
-        div[4].style.display="none";
-        joinDt[0].style.outline="2px solid #378EFF";
-    }
-
 }
 
 function focusOut(str){
@@ -430,24 +320,12 @@ function focusOut(str){
     var emailId=document.getElementsByClassName('email-data');
     var joinDt=document.getElementsByClassName('joindt-data');
 
-    if(str=='empno'){
-        empNo[0].style.outline="none";
-        empNo[0].style.border='1px solid black';
-    }
-    else if(str=="fname"){
-        fName[0].style.outline="none";
-        fName[0].style.border='1px solid black';
-    }
-    else if(str=="lname"){
-        lName[0].style.outline="none";
-        lName[0].style.border='1px solid black';
-    }
-    else if(str=="email"){
-        emailId[0].style.outline="none";
-        emailId[0].style.border='1px solid black';
-    }
-    else if(str=="joindt"){
-        joinDt[0].style.outline="none";
-        joinDt[0].style.border='1px solid black';
+    var fields=['empno','fname','lname','email','joindt'];
+    var divs=[empNo,fName,lName,emailId,joinDt]
+    for(var i=0;i<fields.length;i++){
+        if(str==fields[i]){
+            divs[i][0].style.outline='none';
+            divs[i][0].style.border='1px solid black';
+        }
     }
 }

@@ -6,19 +6,17 @@ var data=fetch('../details.json')
 });
 
 document.addEventListener('DOMContentLoaded',()=>{
-
         var reset=document.getElementsByClassName('reset');
         var btn=document.getElementsByClassName('dropbtn');
-        
         var btn0=btn[0].innerHTML;
         var btn1=btn[1].innerHTML;
         var btn2=btn[2].innerHTML;
         reset[0].addEventListener('click',function(){
             resetDropdown(btn0,btn1,btn2)
         });
-    var a=localStorage.getItem('details');
-    var array=JSON.parse(a);
-    addData(array);
+        var a=localStorage.getItem('details');
+        var data=JSON.parse(a);
+        addData(data);
 });
 
 function addData(data){
@@ -453,23 +451,27 @@ function filterButton(str){
     var rows=document.getElementsByClassName('table-row');
     var btn=document.getElementsByClassName('btn-alpha');
     var result=str.charCodeAt(0);
+    var a=localStorage.getItem('details');
+        var data=JSON.parse(a);
     if(btn[result-65].style.backgroundColor==='rgb(244, 72, 72)'){
-        for(var i=0;i<userName.length;i++){
-            rows[i].style.display="";
+        var l=rows.length;
+        for(var i=0;i<l;i++){
+            rows[0].remove();
         }
+        addData(data);
         btn[result-65].style.backgroundColor='#F0F0F0';
         btn[result-65].style.color='#818FA0';
         document.getElementsByClassName('vector-image')[0].src="../Assets/Interface/black-filter.svg";
     }
     else{
-        for(var i=0;i<userName.length;i++){
-            if(str.toLowerCase()!=userName[i].innerHTML.charAt(0).toLowerCase()){
-                rows[i].style.display='none';
-            }
-            else{
-                rows[i].style.display="";
-            }
+
+        var filteredData=data.filter(user=>user.USER.toLowerCase().startsWith(str.toLowerCase()));
+        console.log(filteredData);
+        var l=rows.length;
+        for(var i=0;i<l;i++){
+            rows[0].remove();
         }
+        addData(filteredData);
         btn[result-65].style.backgroundColor='rgb(244, 72, 72)';
         btn[result-65].style.color='white';
         document.getElementsByClassName('vector-image')[0].src="../Assets/Interface/filter.svg";
@@ -677,7 +679,6 @@ function deleteRow(){
     var div=document.getElementsByClassName('delete-confirm');
     var msg=document.getElementsByClassName('confirm-msg');
     var bodyCheckbox=document.getElementsByClassName('body-checkbox');
-    var rows=document.getElementsByClassName('table-row');
 
     var count=0;
     for(var i=0;i<bodyCheckbox.length;i++){
@@ -756,19 +757,10 @@ function hamburgerOpen(){
     var element=document.getElementsByClassName('left-container');
     var hamburger=document.getElementsByClassName('hamburger-menu');
     var mainContainer=document.getElementsByClassName('main-container');
-    var rightBody=document.getElementsByClassName('body-right');
     element[0].style.display='none';
-    if(element[0].style.display=='none'){
-        hamburger[0].style.display='flex';
-        hamburger[0].style.flexDirection='column';
-        mainContainer[0].style.display='flex';
-        mainContainer[0].style.flexDirection='row';
-        mainContainer[0].style.flex='10% 90%';
-        hamburger[0].style.width='5%';
-        element[0].style.position='sticky';
-        element[0].style.top='0px';
-        rightBody[0].style.marginLeft='2%';
-    }
+    hamburger[0].classList.add('hamburger-open');
+    hamburger[0].style.display='block';
+    mainContainer[0].classList.add('expand');
 }
 
 function hamburgerClose(){
@@ -776,18 +768,10 @@ function hamburgerClose(){
     var element=document.getElementsByClassName('left-container');
     var hamburger=document.getElementsByClassName('hamburger-menu');
     var mainContainer=document.getElementsByClassName('main-container');
-    var mainContainer=document.getElementsByClassName('main-container');
-    var rightBody=document.getElementsByClassName('body-right');
     hamburger[0].style.display='none';
-    if(hamburger[0].style.display=='none'){
-        element[0].style.display='block';
-        mainContainer[0].style.display='flex';
-        mainContainer[0].style.flexDirection='row';
-        mainContainer[0].style.flex='18% 82%';
-        mainContainer[0].style.marginLeft='1%';
-        leftUpdate[0].style.marginTop='75%';
-        rightBody[0].style.marginLeft='0%';
-    }
+    element[0].style.display='block';
+    leftUpdate[0].style.marginTop='75%';
+    mainContainer[0].classList.add('hamburger-close');
 }
 
 

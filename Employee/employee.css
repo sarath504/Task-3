@@ -721,3 +721,20 @@ tbody td{
     padding: 0px;
     height: 20px;
 }
+
+.logo-header{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.logo-cirlce{
+    height: 35px;
+    margin-left: -20%;
+    margin-top: -25%;
+}
+
+.hamburger-image{
+    padding: 5% 10%;
+    
+}
