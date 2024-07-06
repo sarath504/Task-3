@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     var inputFile=document.getElementsByClassName('file-upload');
     inputFile[0].addEventListener('change',event=>{
-    console.log("entered");
     const image=event.target.files[0];
     const reader=new FileReader();
     reader.readAsDataURL(image);
@@ -65,7 +64,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         img[0].src=localStorage.getItem('profileImage');
     });
     inputFile[0].addEventListener('click',()=>{
-        inputFile[0].value=null;
+        inputFile[0].value='';
     });
     
 });

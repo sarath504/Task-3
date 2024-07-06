@@ -447,7 +447,6 @@ function applyColorChange(){
 }
 
 function filterButton(str){
-    var userName=document.getElementsByClassName("user-name");
     var rows=document.getElementsByClassName('table-row');
     var btn=document.getElementsByClassName('btn-alpha');
     var result=str.charCodeAt(0);
@@ -867,7 +866,6 @@ function exportToExcel() {
             }
             row.push(cols[j].innerText);
         }
-            
         csvData.push(row.join(","));
     }
 
